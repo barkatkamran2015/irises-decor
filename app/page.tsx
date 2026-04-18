@@ -29,7 +29,7 @@ export default function Home() {
     <main>
       <nav className="topbar" aria-label="Main navigation">
         <a className="brand" href="#home">
-          <Image src="/irises-logo.svg" alt="Irises Decor" width={150} height={54} priority />
+          <Image src="/irises-logo.svg" alt="Irises Decor" width={132} height={132} priority />
         </a>
         <div className="nav-links">
           <a href="#albums">Albums</a>
@@ -191,7 +191,7 @@ export default function Home() {
 
       <footer>
         <div>
-          <Image src="/irises-logo.svg" alt="Irises Decor" width={160} height={57} />
+          <Image src="/irises-logo.svg" alt="Irises Decor" width={138} height={138} />
           <p>Party decor, wedding styling, floral design, and happy gatherings.</p>
         </div>
         <a href="#booking">Book your celebration</a>

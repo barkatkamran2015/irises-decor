@@ -44,7 +44,7 @@ export default async function AlbumPage({ params }: AlbumPageProps) {
     <main>
       <nav className="topbar topbar-solid" aria-label="Album navigation">
         <Link className="brand" href="/">
-          <Image src="/irises-logo.svg" alt="Irises Decor" width={150} height={54} priority />
+          <Image src="/irises-logo.svg" alt="Irises Decor" width={132} height={132} priority />
         </Link>
         <div className="nav-links">
           <Link href="/#albums">Albums</Link>
