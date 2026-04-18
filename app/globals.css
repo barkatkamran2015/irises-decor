@@ -10,8 +10,11 @@
   --coral: #f05d50;
   --yellow: #f6c744;
   --pink: #ffd9df;
+  --petal: #fff0f1;
+  --aqua: #d8fbff;
   --black: #0f1110;
-  --shadow: 0 18px 50px rgba(17, 19, 18, 0.14);
+  --shadow: 0 20px 60px rgba(17, 19, 18, 0.16);
+  --deep-shadow: 0 28px 90px rgba(17, 19, 18, 0.28);
 }
 
 * {
@@ -24,7 +27,11 @@ html {
 
 body {
   margin: 0;
-  background: var(--paper);
+  background:
+    linear-gradient(90deg, rgba(16, 100, 72, 0.035) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(16, 100, 72, 0.035) 1px, transparent 1px),
+    var(--paper);
+  background-size: 46px 46px;
   color: var(--ink);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -51,7 +58,8 @@ img {
   justify-content: space-between;
   padding: 12px clamp(18px, 4%, 58px) 22px;
   color: white;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0));
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.12) 68%, rgba(0, 0, 0, 0));
 }
 
 .topbar-solid {
@@ -78,10 +86,10 @@ img {
   display: flex;
   gap: clamp(12px, 3%, 30px);
   margin-top: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: 8px;
   padding: 12px 16px;
-  background: rgba(15, 17, 16, 0.44);
+  background: rgba(15, 17, 16, 0.58);
   backdrop-filter: blur(14px);
   font-size: 0.95rem;
   font-weight: 800;
@@ -106,6 +114,29 @@ img {
   color: white;
 }
 
+.hero::before,
+.album-hero::before {
+  position: absolute;
+  inset: 32px;
+  z-index: -1;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  content: "";
+  pointer-events: none;
+}
+
+.hero::after,
+.album-hero::after {
+  position: absolute;
+  right: clamp(20px, 5%, 72px);
+  bottom: 38px;
+  z-index: -1;
+  width: min(360px, 46%);
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--yellow), var(--coral));
+  content: "";
+}
+
 .album-hero {
   min-height: 78vh;
 }
@@ -119,8 +150,9 @@ img {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.18)),
-    linear-gradient(0deg, rgba(16, 100, 72, 0.74), rgba(0, 0, 0, 0.04));
+    radial-gradient(circle at 75% 28%, rgba(246, 199, 68, 0.24), transparent 26%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.2)),
+    linear-gradient(0deg, rgba(16, 100, 72, 0.78), rgba(0, 0, 0, 0.06));
 }
 
 .hero-content,
@@ -151,10 +183,11 @@ p {
 
 h1 {
   margin: 0;
-  max-width: 10ch;
-  font-size: 5.8rem;
+  max-width: 11ch;
+  font-size: 5.4rem;
   line-height: 0.9;
   letter-spacing: 0;
+  text-wrap: balance;
 }
 
 h2 {
@@ -162,6 +195,7 @@ h2 {
   font-size: 3.8rem;
   line-height: 0.98;
   letter-spacing: 0;
+  text-wrap: balance;
 }
 
 h3 {
@@ -237,7 +271,7 @@ h3 {
   border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: 8px;
   padding: 14px 16px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(14px);
   color: #f4fff9;
   font-weight: 800;
@@ -253,6 +287,7 @@ h3 {
 .feature-band,
 .process-section,
 .booking-section,
+.mood-section,
 .album-detail-intro,
 .album-gallery-section,
 .album-planning-section,
@@ -261,6 +296,7 @@ footer {
 }
 
 .intro-section {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
   gap: 34px;
@@ -270,15 +306,85 @@ footer {
   border-bottom: 1px solid var(--line);
 }
 
+.intro-section::after {
+  position: absolute;
+  right: clamp(20px, 5%, 72px);
+  bottom: -1px;
+  width: min(520px, 62%);
+  height: 5px;
+  background: linear-gradient(90deg, var(--coral), var(--yellow), var(--teal));
+  content: "";
+}
+
 .intro-section > p,
 .section-heading p,
 .booking-copy p,
 .process-section li,
 footer p,
-.album-detail-intro p {
+.album-detail-intro p,
+.mood-copy p {
   color: var(--muted);
   font-size: 1.04rem;
   line-height: 1.7;
+}
+
+.mood-section {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.85fr) minmax(360px, 1.15fr);
+  gap: 34px;
+  align-items: center;
+  background:
+    linear-gradient(135deg, var(--petal), transparent 48%),
+    linear-gradient(315deg, var(--aqua), transparent 46%),
+    white;
+}
+
+.mood-copy {
+  display: grid;
+  gap: 20px;
+}
+
+.finish-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.finish-row span {
+  border: 1px solid rgba(16, 100, 72, 0.2);
+  border-radius: 999px;
+  padding: 10px 13px;
+  color: var(--green);
+  background: rgba(255, 255, 255, 0.72);
+  font-weight: 900;
+}
+
+.mood-board {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  grid-auto-rows: 210px;
+  gap: 14px;
+}
+
+.mood-image {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 8px;
+  background: var(--soft);
+  box-shadow: var(--shadow);
+}
+
+.mood-large {
+  grid-row: span 2;
+}
+
+.mood-image::after {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 8px;
+  content: "";
 }
 
 .section-heading {
@@ -297,18 +403,19 @@ footer p,
 .album-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: 22px;
 }
 
 .album-card {
   position: relative;
   display: grid;
   min-height: 100%;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(16, 100, 72, 0.18);
   border-radius: 8px;
   overflow: hidden;
-  background: white;
-  box-shadow: 0 8px 24px rgba(17, 19, 18, 0.06);
+  background: var(--black);
+  color: white;
+  box-shadow: 0 12px 34px rgba(17, 19, 18, 0.12);
   transition:
     transform 180ms ease,
     box-shadow 180ms ease,
@@ -317,27 +424,32 @@ footer p,
 
 .album-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(0, 137, 134, 0.45);
-  box-shadow: var(--shadow);
+  border-color: rgba(246, 199, 68, 0.72);
+  box-shadow: var(--deep-shadow);
 }
 
 .album-image {
   position: relative;
-  aspect-ratio: 1.06;
+  aspect-ratio: 0.86;
 }
 
 .album-image::after {
   position: absolute;
-  inset: auto 0 0 0;
-  height: 34%;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.44), transparent);
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.84), rgba(0, 0, 0, 0.08) 55%),
+    linear-gradient(90deg, rgba(16, 100, 72, 0.42), transparent);
   content: "";
 }
 
 .album-copy {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: grid;
   gap: 10px;
-  padding: 18px;
+  padding: 22px;
 }
 
 .album-copy span {
@@ -345,8 +457,8 @@ footer p,
   width: fit-content;
   border-radius: 999px;
   padding: 6px 10px;
-  color: #063c38;
-  background: var(--mint);
+  color: white;
+  background: rgba(240, 93, 80, 0.9);
   font-size: 0.76rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -354,7 +466,7 @@ footer p,
 
 .album-copy p {
   margin: 0;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.82);
   line-height: 1.55;
 }
 
@@ -364,7 +476,15 @@ footer p,
   gap: 8px;
 }
 
-.album-meta small,
+.album-meta small {
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  padding: 7px 10px;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.12);
+  font-weight: 800;
+}
+
 .palette-list span {
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -375,10 +495,11 @@ footer p,
 }
 
 .album-link {
-  color: var(--coral);
+  color: var(--yellow);
 }
 
 .feature-band {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(300px, 1.15fr);
   gap: 30px;
@@ -386,6 +507,15 @@ footer p,
     linear-gradient(135deg, rgba(246, 199, 68, 0.2), transparent),
     var(--green);
   color: white;
+}
+
+.feature-band::after {
+  position: absolute;
+  inset: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  content: "";
+  pointer-events: none;
 }
 
 .feature-band .eyebrow {
@@ -404,7 +534,7 @@ footer p,
   border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 8px;
   padding: 16px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.1);
   font-weight: 850;
 }
 
@@ -415,6 +545,7 @@ footer p,
 }
 
 .package-card {
+  position: relative;
   display: grid;
   gap: 22px;
   align-content: start;
@@ -422,7 +553,20 @@ footer p,
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 24px;
-  background: linear-gradient(180deg, white, var(--soft));
+  background:
+    linear-gradient(135deg, rgba(255, 240, 241, 0.7), transparent 42%),
+    linear-gradient(180deg, white, var(--soft));
+  box-shadow: 0 10px 26px rgba(17, 19, 18, 0.06);
+  overflow: hidden;
+}
+
+.package-card::before {
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(16, 100, 72, 0.12);
+  border-radius: 8px;
+  content: "";
+  pointer-events: none;
 }
 
 .package-card:nth-child(2) {
@@ -447,12 +591,23 @@ footer p,
 }
 
 .process-section {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.8fr);
   gap: 32px;
   background:
     linear-gradient(135deg, var(--pink), transparent 56%),
     var(--mint);
+}
+
+.process-section::before {
+  position: absolute;
+  left: clamp(20px, 5%, 72px);
+  top: 0;
+  width: min(420px, 48%);
+  height: 5px;
+  background: linear-gradient(90deg, var(--teal), var(--yellow), var(--coral));
+  content: "";
 }
 
 .process-section ol {
@@ -463,10 +618,21 @@ footer p,
 }
 
 .booking-section {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(260px, 0.7fr) minmax(320px, 1.3fr);
   gap: 34px;
   align-items: start;
+}
+
+.booking-section::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(135deg, rgba(216, 251, 255, 0.8), transparent 42%),
+    linear-gradient(315deg, rgba(255, 240, 241, 0.9), transparent 46%);
+  content: "";
 }
 
 .booking-copy {
@@ -480,8 +646,10 @@ footer p,
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: clamp(18px, 3%, 30px);
-  background: white;
-  box-shadow: var(--shadow);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 251, 248, 0.96)),
+    white;
+  box-shadow: var(--deep-shadow);
 }
 
 .selected-look {
@@ -752,6 +920,7 @@ footer a {
   .feature-band,
   .process-section,
   .booking-section,
+  .mood-section,
   .album-detail-intro,
   .album-planning-section {
     grid-template-columns: 1fr;
@@ -770,7 +939,16 @@ footer a {
     grid-template-columns: 1fr 1fr;
   }
 
+  .mood-board {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .gallery-feature {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .mood-large {
     grid-column: 1 / -1;
     grid-row: auto;
   }
@@ -826,11 +1004,13 @@ footer a {
   .payment-panel,
   .payment-grid,
   .detail-facts,
+  .mood-board,
   .album-gallery {
     grid-template-columns: 1fr;
   }
 
-  .album-gallery {
+  .album-gallery,
+  .mood-board {
     grid-auto-rows: 240px;
   }
 

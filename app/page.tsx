@@ -24,6 +24,15 @@ const packages = [
   }
 ];
 
+const finishes = [
+  "Fresh florals",
+  "Layered candles",
+  "Statement backdrops",
+  "Styled tables",
+  "Balloon artistry",
+  "Entrance moments"
+];
+
 export default function Home() {
   return (
     <main>
@@ -50,10 +59,10 @@ export default function Home() {
         <div className="hero-overlay" />
         <div className="hero-content">
           <p className="eyebrow">Weddings, birthdays, showers, proposals</p>
-          <h1>Decor for every happy party.</h1>
+          <h1>Beautiful rooms for beautiful moments.</h1>
           <p>
-            Floral designs, backdrops, tables, balloons, and full event styling
-            customers can choose from and reserve online.
+            Floral styling, statement backdrops, tables, balloons, and event
+            details shaped into one polished celebration.
           </p>
           <div className="hero-actions">
             <a className="primary-button" href="#booking">
@@ -83,19 +92,61 @@ export default function Home() {
       <section className="intro-section">
         <div>
           <p className="eyebrow">Irises Decor</p>
-          <h2>Bold first impressions with soft floral detail.</h2>
+          <h2>Every corner styled with intention.</h2>
         </div>
         <p>
-          Share your date, guest count, colors, and venue. We prepare the visual
-          direction, handle setup, and reserve your celebration date after the
-          online deposit.
+          Choose a look, share your colors, and reserve your date. We shape the
+          flowers, tables, backdrop, entrance, and photo moments into one
+          celebration guests remember.
         </p>
+      </section>
+
+      <section className="mood-section" aria-label="Decor inspiration">
+        <div className="mood-copy">
+          <p className="eyebrow">Decoration studio</p>
+          <h2>Soft florals, glowing tables, and photo-ready scenes.</h2>
+          <p>
+            From a private dinner to a full wedding reception, each setup is
+            balanced for the room, the camera, and the feeling of the day.
+          </p>
+          <div className="finish-row">
+            {finishes.map((finish) => (
+              <span key={finish}>{finish}</span>
+            ))}
+          </div>
+        </div>
+        <div className="mood-board">
+          <div className="mood-image mood-large">
+            <Image
+              src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=85"
+              alt="Elegant reception room with floral event decor"
+              fill
+              sizes="(max-width: 980px) 100vw, 48vw"
+            />
+          </div>
+          <div className="mood-image">
+            <Image
+              src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=900&q=85"
+              alt="Decorated birthday dessert table"
+              fill
+              sizes="(max-width: 980px) 50vw, 24vw"
+            />
+          </div>
+          <div className="mood-image">
+            <Image
+              src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=85"
+              alt="Romantic candle and floral table setting"
+              fill
+              sizes="(max-width: 980px) 50vw, 24vw"
+            />
+          </div>
+        </div>
       </section>
 
       <section className="section" id="albums">
         <div className="section-heading">
           <p className="eyebrow">Sample albums</p>
-          <h2>Open an album and choose your party look.</h2>
+          <h2>Choose the scene your guests will walk into.</h2>
           <p>
             Each album includes a palette, guest range, package match, and a
             ready-to-book selection form.
@@ -130,7 +181,7 @@ export default function Home() {
       <section className="feature-band">
         <div>
           <p className="eyebrow">Full event styling</p>
-          <h2>Designed to look good in person and in every photo.</h2>
+          <h2>Designed for the room, the camera, and the mood.</h2>
         </div>
         <div className="feature-list">
           <p>Floral arches and stages</p>
@@ -145,7 +196,7 @@ export default function Home() {
       <section className="section" id="packages">
         <div className="section-heading">
           <p className="eyebrow">Packages</p>
-          <h2>Start with the right celebration size.</h2>
+          <h2>Pick the level of magic.</h2>
         </div>
         <div className="package-grid">
           {packages.map((item) => (
@@ -168,7 +219,7 @@ export default function Home() {
       <section className="process-section">
         <div>
           <p className="eyebrow">How booking works</p>
-          <h2>Select an album, choose a date, and the date is held for you.</h2>
+          <h2>Select the look, choose the date, and hold the celebration.</h2>
         </div>
         <ol>
           <li>Open an album and select the style for your celebration.</li>
