@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Irises Decor</title>
+  <desc id="desc">Irises Decor teal wordmark with leaves.</desc>
+  <defs>
+    <linearGradient id="teal" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#37c7ce"/>
+      <stop offset="1" stop-color="#0c8e95"/>
+    </linearGradient>
+    <filter id="shadow" x="-12%" y="-12%" width="124%" height="124%">
+      <feDropShadow dx="0" dy="2" stdDeviation="1.4" flood-color="#063f42" flood-opacity="0.55"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <g fill="url(#teal)" stroke="#0b6f73" stroke-width="1.2">
+      <path d="M260 44c-27 44-28 78-3 121 28-42 30-77 3-121Z"/>
+      <path d="M217 83c34 16 52 43 58 80-36-10-57-37-58-80Z"/>
+      <path d="M160 138c49-9 84 7 106 49-47 10-82-5-106-49Z"/>
+      <path d="M292 118c43-13 80-7 111 20-43 14-81 8-111-20Z"/>
+      <path d="M252 167c14-51 39-91 74-121-28 51-43 101-46 151-2 35-1 66 3 91h-42c3-34 2-74-4-120Z"/>
+      <path d="M212 121c22 24 32 50 30 79-25-20-35-48-30-79Z" opacity="0.9"/>
+      <path d="M305 137c-30 16-50 39-59 69 33-7 53-30 59-69Z" opacity="0.9"/>
+    </g>
+    <g fill="url(#teal)" stroke="#0b6f73" stroke-width="1.1" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900">
+      <text x="61" y="313" font-size="94" letter-spacing="-1">IRISES</text>
+      <text x="62" y="374" font-size="42" letter-spacing="38">DECOR</text>
+    </g>
+  </g>
+</svg>
